@@ -40,7 +40,7 @@ function displayAll(arr){
     let show=``;
     for(let i=0;i<arr.meals.length;i++){
         show+=`
-        <div class="col-md-3 meals">
+        <div class="col-12 col-lg-3 meals allOf ms-5 ms-lg-0">
                 <div class="image position-relative overflow-hidden">
                     <img src="${arr.meals[i].strMealThumb}" alt="" class="w-100">
                     <div class="coler position-absolute translate-middle w-100">
@@ -68,24 +68,24 @@ class Meal{
         console.log('no');
     }
     show+=`
-    <div class="col-md-4 text-white">
-    <img src="${x.strMealThumb}" alt="meal" class="w-100 rounded">
-    <h1>${x.strMeal}</h1>
+    <div class="col-12 col-lg-4 text-white">
+    <img src="${x.strMealThumb}" alt="meal" class="w-100 rounded jamimg">
+    <h1 class="jameson head">${x.strMeal}</h1>
     </div>
-    <div class="col-md-8 text-white">
-    <h1>Instructions</h1>
-    <p>${x.strInstructions}</p>
-    <h2>Area: ${x.strArea}</h2>
-    <h2>Category: ${x.strCategory}</h2>
-    <h2>Recipes:</h2>
-    <ul class="list-unstyled gap-3 recipe">
+    <div class="col-12 col-lg-8 text-white">
+    <h1 class="jameson">Instructions</h1>
+    <p class="jameson">${x.strInstructions}</p>
+    <h2 class="jameson">Area: ${x.strArea}</h2>
+    <h2 class="jameson">Category: ${x.strCategory}</h2>
+    <h2 class="jameson">Recipes:</h2>
+    <ul class="jameson list-unstyled gap-3 recipe">
     ${filteredRecipes.map((x)=>`<li class="rounded">${x}</li>`).toString().replaceAll(',','')}
     </ul>
-    <h2>tags</h2>
-    <ul class="list-unstyled tag">
-    ${tags!=null?tags.map((tag)=>`<li class="ms-1 rounded">${tag}</li>`).toString().replaceAll(',',''):`No Tags`}
+    <h2 class="jameson">tags</h2>
+    <ul class="list-unstyled tag jameson">
+    ${tags!=null?tags.map((tag)=>`<li class="ms-1 rounded">${tag}</li>`).toString().replaceAll(',',' '):`No Tags`}
     </ul>
-    <div class="mt-5">
+    <div class="mt-5 jameson">
     <a href="${x.strSource}" class="text-decoration-none text-reset"><button class="btn btn-success">Source</button></a>
     <a href="${x.strYoutube}" class="text-decoration-none text-reset"><button class="btn btn-danger">Youtube</button></a>
     </div>
@@ -133,10 +133,10 @@ class Meal{
 function displaySearch(){
     let show=``;
     show+=`
-    <div class="col-md-6">
+    <div class="inputS col-md-6">
     <input class="form-control" id="byName" type="search" placeholder="search by Name...">
     </div>
-    <div class="col-md-6">
+    <div class="inputS col-md-6">
     <input class="form-control" maxlength="1" id="byLetter" type="search" placeholder="search by First Letter...">
     </div>
     `
@@ -176,7 +176,7 @@ function displaySearchResults(search){
     let show=``;
     for(let i=0;i<search.meals.length;i++){
     show+=`
-    <div class="col-md-3 meals">
+    <div class="col-12 col-lg-3 meals searchResu">
                 <div class="image position-relative overflow-hidden">
                     <img src="${search.meals[i].strMealThumb}" alt="" class="w-100">
                     <div class="coler position-absolute translate-middle w-100">
@@ -276,9 +276,9 @@ function displayIngredients(ing){
     for(let i=0;i<20;i++){
         show+=`
         <div class="col-md-3 text-center text-white area">
-                    <i class="fa-solid fa-drumstick-bite fa-4x"></i>
-                        <h3>${ing[i].strIngredient}</h3>
-                        <div class="dokki">
+                    <i class="fa-solid fa-drumstick-bite fa-4x ingr"></i>
+                        <h3 class="ingr">${ing[i].strIngredient}</h3>
+                        <div class="dokki ingr">
                         <p>${ing[i].strDescription}</p>
                         </div>
                 </div>
