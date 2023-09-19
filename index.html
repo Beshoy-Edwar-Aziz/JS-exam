@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yummy</title>
+    
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -12,14 +13,16 @@
     <link rel="icon" href="images/logo (1).png">
 </head>
 <body>
+    
     <nav class="min-vh-100">
         <div class="booker bg-dark d-flex flex-column justify-content-between">
         <ul class="text-white list-unstyled koi">
-            <li id="search">Search</li>
-            <li id="categories">Categories</li>
-            <li id="area">Area</li>
-            <li id="ingredients">Ingredients</li>
-            <li id="contact">Contact Us</li>
+            <li id="home"><i class="fa fa-home"></i> Home</li>
+            <li id="search"><i class="fa fa-magnifying-glass"></i> Search</li>
+            <li id="categories"><i class="fa-solid fa-table-columns"></i> Categories</li>
+            <li id="area"><i class="fa fa-earth"></i> Area</li>
+            <li id="ingredients"><i class="fa-solid fa-drumstick-bite"></i> Ingredients</li>
+            <li id="contact"><i class="fa-solid fa-phone"></i> Contact Us</li>
         </ul>
         <div class="iconsOfNav text-white">
             <div class="icons ps-3">
@@ -40,6 +43,7 @@
         </ul>
     </div>
     </nav>
+    
     <div class="loading">
         <div class="sk-circle">
             <div class="sk-circle1 sk-child"></div>
@@ -56,7 +60,12 @@
             <div class="sk-circle12 sk-child"></div>
           </div>
     </div>
-    
+    <header class="d-flex justify-content-center align-items-center min-vh-100">
+        <div class="shutter d-flex justify-content-center align-items-center">
+        <img src="images/logo (1).png" class="bg-hero" alt="yummylogo">
+        <p class="lead text-white">Welcome To Yummy!</p>
+    </div>
+    </header>
     <section id="main">
         <div class="container">
             <div class="row gy-3 mb-4" id="shwSearch">
@@ -89,5 +98,6 @@
     <script src="js/jquery-3.7.0.min.js"></script>    
     <script src="js/bootstrap.bundle.min.js"></script>    
     <script src="js/main.js"></script>    
+    <script src="js/owl.carousel.min.js"></script>
 </body>
 </html>

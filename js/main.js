@@ -28,6 +28,15 @@ $(window).on('load',function(){
 function showload(){
     $('.loadingin').fadeIn(200)
 }
+function hideHeader(){
+    $('header').removeClass('d-flex');
+    $('header').addClass('d-none');
+}
+function openHeader(){
+    $('header').removeClass('d-none');
+    $('header').addClass('d-flex');
+}
+
 ////Fetching Random Meals from Api
 async function getAllApi(){
     showload() ////Shows loading screen when accessing this function and the same for the rest of functions having fetch
@@ -36,6 +45,47 @@ async function getAllApi(){
     await $('.loadingin').fadeOut(200) ////Awaits the data to be received first and then removes the loading screen
     displayAll(data)
 }
+$('#home').click(function(){
+    openHeader()
+    getAllApi()
+    closeNav()
+    removeSearch()
+})
+// function displayCarasoul(arr){
+//     let show=``;
+//     for(let i=0;i<arr.meals.length;i++){
+//         show+= `<div>
+//         <img src="${arr.meals[i].strMealThumb}" alt=""> 
+//    </div>`
+//     }
+//     document.getElementById('showCara').innerHTML=show
+//     $(document).ready(function(){
+//         $(".owl-carousel").owlCarousel({
+//             loop:true,
+//             margin:10,
+//             nav:false,
+//             dots:false,
+//             autoplay:true,
+//             autoplayTimeout:2000,
+//             responsiveClass:true,
+//             responsive:{
+//                 0:{
+//                     items:1,
+//                     nav:false
+//                 },
+//                 600:{
+//                     items:3,
+//                     nav:false
+//                 },
+//                 1000:{
+//                     items:3,
+//                     nav:false,
+//                     loop:true
+//                 }
+//             }
+//         });
+//       });
+// }
 function displayAll(arr){
     let show=``;
     for(let i=0;i<arr.meals.length;i++){
@@ -59,6 +109,7 @@ getAllApi()
 class Meal{
   
   displayMeal(x,filteredRecipes){
+    hideHeader()
     let show=``;
     let v=x.strTags
     let tags
@@ -143,6 +194,7 @@ function displaySearch(){
     document.getElementById('shwSearch').innerHTML=show
 }
 $('#search').click(function(){
+    hideHeader()
     displaySearch()
     closeNav()
     let show=``
@@ -173,6 +225,7 @@ $('body').on('keyup','#byLetter',async function(e){
 })
 ///////////////////////////Display The Search Results\\\\\\\\\\\\\\\\\\\\
 function displaySearchResults(search){
+    hideHeader()
     let show=``;
     for(let i=0;i<search.meals.length;i++){
     show+=`
@@ -201,10 +254,11 @@ $('#categories').click(async function(){
     displayCategories(allCategories);
 })
 function displayCategories(categories){
+    hideHeader()
     let show=``;
     for(let i=0;i<categories.length;i++){
     show+=`
-    <div class="col-md-3 categories">
+    <div class="col-12 col-lg-3 categories allOf ms-5 ms-lg-0">
                 <div class="image position-relative overflow-hidden">
                     <img src="${categories[i].strCategoryThumb}" alt="" class="w-100">
                     <div class="coler d-flex flex-column align-items-center position-absolute translate-middle w-100">
@@ -238,6 +292,7 @@ $('#area').click(async function(){
 })
 ///////////////////Displaying Area\\\\\\\\\\\\\\\
 function displayArea(area){
+    hideHeader()
     let show=``;
     for(let i=0;i<area.length;i++){
         show+=`
@@ -272,6 +327,7 @@ $('#ingredients').click(async function(){
 })
 /////////////////////Displaying Ingredients\\\\\\\\\\\\\\\\
 function displayIngredients(ing){
+    hideHeader()
     let show=``;
     for(let i=0;i<20;i++){
         show+=`
@@ -306,29 +362,30 @@ let pass
 let repass
 let showButn
 $('#contact').click(function(){
+    hideHeader()
     let show=``;
     show+=`
-    <div class="col-md-6">
+    <div class="col-md-6 inputS">
     <input class="form-control" id="name" placeholder="Write Your Name" type="text">
     <div class="bg-danger mt-2 text-center p-2 d-none" id="nameMsg">Alphabetical Characters Only</div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 inputS">
     <input class="form-control col-md-6" id="email" placeholder="Write Your Email" type="email">
     <div class="bg-danger mt-2 text-center p-2 d-none" id="emailMsg">Email isn't Valid</div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 inputS">
     <input class="form-control col-md-6" id="phone" placeholder="Write Your Phone" type="text">
     <div class="bg-danger mt-2 text-center p-2 d-none" id="phoneMsg">Enter Valid Phone Number</div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 inputS">
     <input class="form-control col-md-6" id="age" placeholder="Write Your Age" type="number">
     <div class="bg-danger mt-2 text-center p-2 d-none" id="ageMsg">Enter Valid Age</div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 inputS">
     <input class="form-control col-md-6" id="pass" placeholder="Write Your Password" type="password">
     <div class="bg-danger mt-2 text-center p-2 d-none" id="passMsg">Enter a Valid Password: Min Eight Characters and Must Contain at Least One Letter, Two Numbers and one symbol(!@#$%^&*)</div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 inputS">
     <input class="form-control col-md-6" id="repass" placeholder="Repassword" type="password">
     <div class="bg-danger mt-2 text-center p-2 d-none" id="repassMsg">Enter a Valid RePassword</div>
     </div>
